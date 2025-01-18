@@ -1,0 +1,33 @@
+name: litemusic
+description: "lite music"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  dio: ^5.7.0
+  logger: ^2.5.0
+  fluttertoast: ^8.2.10
+  get: ^4.6.6
+  json_annotation: ^4.9.0
+  flutter_smart_dialog: ^4.9.8+5
+  super_cupertino_navigation_bar: ^2.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
+  json_serializable: ^6.8.0
+
+flutter:
+
+  uses-material-design: true
