@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:litemusic/http/http_dio.dart';
 import 'package:litemusic/ui/model/music_model.dart';
@@ -11,12 +12,13 @@ import '../../../utils/toast.dart';
 /// description:
 
 class Searchmusiccontroller extends GetxController {
+  final TextEditingController keywordController = TextEditingController();
   RxList<MusicModel> datas = RxList();
 
   @override
   void onInit() {
     super.onInit();
-    search();
+    // search();
   }
 
   void search({isShowLoading = true}) async {
@@ -25,7 +27,7 @@ class Searchmusiccontroller extends GetxController {
     }
     try {
       var params = {
-        'input': '伍佰',
+        'input': keywordController.text,
         'type': 'netease',
         'filter': 'name',
         'page': 1,

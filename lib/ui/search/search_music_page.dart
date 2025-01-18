@@ -1,6 +1,8 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:litemusic/res/colors.dart';
+import '../../utils/toast.dart';
 import 'controller/SearchMusicController.dart';
 
 /// @author: xandone
@@ -8,10 +10,34 @@ import 'controller/SearchMusicController.dart';
 /// description:
 
 class SearchMusicPage extends GetView<Searchmusiccontroller> {
+  final AudioPlayer audioPlayer = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MyColors.appBgColor,
+        appBar: AppBar(
+          backgroundColor: MyColors.white,
+          title: TextField(
+            onSubmitted: (value) {
+              if (value.isNotEmpty) {
+                controller.search();
+              } else {
+                MyToast.showToast('请输入关键字');
+              }
+            },
+            controller: controller.keywordController,
+            autofocus: false,
+            textInputAction: TextInputAction.search,
+            style: const TextStyle(fontSize: 15, color: MyColors.textColor1),
+            decoration: const InputDecoration(
+                counterText: '',
+                contentPadding: EdgeInsets.zero,
+                isDense: true,
+                border: InputBorder.none,
+                hintStyle: TextStyle(color: MyColors.hintColor, fontSize: 14),
+                hintText: '请输入关键字'),
+          ),
+        ),
         body: Column(
           children: [
             Expanded(
@@ -32,6 +58,10 @@ class SearchMusicPage extends GetView<Searchmusiccontroller> {
                           style: const TextStyle(
                               color: MyColors.textColor2, fontSize: 12),
                         ),
+                        onTap: () async {
+                          await audioPlayer.play(
+                              UrlSource(controller.datas[index].url ?? ''));
+                        },
                       );
                     })))
           ],
