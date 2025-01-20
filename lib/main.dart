@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 import 'package:litemusic/ui/home/home_page.dart';
 import 'package:litemusic/ui/routes/page_manifest.dart';
 import 'package:litemusic/ui/routes/page_path.dart';
+import 'package:litemusic/ui/service/music_service.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //设置状态栏为透明
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
@@ -16,7 +17,12 @@ void main() {
     systemNavigationBarColor: Colors.transparent,
   );
   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  await initServices();
   runApp(const MyApp());
+}
+
+Future initServices() async {
+  Get.put(MusicService());
 }
 
 class MyApp extends StatelessWidget {

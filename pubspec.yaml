@@ -19,7 +19,9 @@ dependencies:
   json_annotation: ^4.9.0
   flutter_smart_dialog: ^4.9.8+5
   super_cupertino_navigation_bar: ^2.1.2
-  audioplayers: ^6.1.0
+  just_audio: ^0.9.43
+  cached_network_image: ^3.4.1
+  flutter_svg: ^2.0.17
 
 dev_dependencies:
   flutter_test:
@@ -32,3 +34,6 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+
+  assets:
+    - assets/
