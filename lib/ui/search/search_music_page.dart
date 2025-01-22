@@ -63,9 +63,6 @@ class SearchMusicPage extends GetView<Searchmusiccontroller> {
                         onTap: () async {
                           MusicService.instance
                               .upDateMusic(controller.datas[index]);
-                          await audioPlayer
-                              .setUrl(controller.datas[index].url ?? '');
-                          audioPlayer.play();
                         },
                       );
                     })))
