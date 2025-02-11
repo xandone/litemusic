@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:litemusic/res/colors.dart';
-import 'package:litemusic/ui/routes/page_path.dart';
 import 'package:litemusic/utils/toast.dart';
+
+import '../../routes/page_path.dart';
+import '../../widget/play_music_widget.dart';
 
 /// @author: xiao
 /// created on: 2025/1/17 10:01
@@ -73,7 +75,8 @@ class HomePage extends GetView {
                 ),
               );
             },
-          ))
+          )),
+          PlayMusicWidget(),
         ],
       )),
     );

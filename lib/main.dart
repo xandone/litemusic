@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:get/get.dart';
-import 'package:litemusic/ui/home/home_page.dart';
-import 'package:litemusic/ui/routes/page_manifest.dart';
-import 'package:litemusic/ui/routes/page_path.dart';
-import 'package:litemusic/ui/service/music_service.dart';
+import 'package:litemusic/routes/page_manifest.dart';
+import 'package:litemusic/routes/page_path.dart';
+import 'package:litemusic/service/music_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

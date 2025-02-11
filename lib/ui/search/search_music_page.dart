@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:litemusic/res/colors.dart';
-import 'package:litemusic/ui/service/music_service.dart';
+import '../../service/music_service.dart';
 import '../../utils/toast.dart';
-import '../widget/play_music_widget.dart';
 import 'controller/SearchMusicController.dart';
 
 /// @author: xandone
@@ -41,7 +39,6 @@ class SearchMusicPage extends GetView<Searchmusiccontroller> {
         ),
         body: Column(
           children: [
-            PlayMusicWidget(),
             Expanded(
                 child: Obx(() => ListView.builder(
                     itemCount: controller.datas.length,
@@ -63,6 +60,9 @@ class SearchMusicPage extends GetView<Searchmusiccontroller> {
                         onTap: () async {
                           MusicService.instance
                               .upDateMusic(controller.datas[index]);
+
+                          MusicService.instance
+                              .setMusicUrl(controller.datas[index].url);
                         },
                       );
                     })))

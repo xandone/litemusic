@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 
+import '../../res/gaps.dart';
 import '../service/music_service.dart';
 import 'image_loader.dart';
 
@@ -19,12 +21,9 @@ class PlayMusicWidget extends StatefulWidget {
 }
 
 class _PlayMusicWidgetState extends State<PlayMusicWidget> {
-  final AudioPlayer audioPlayer = AudioPlayer();
-
   @override
   void dispose() {
     super.dispose();
-    audioPlayer.stop();
   }
 
   @override
@@ -37,10 +36,28 @@ class _PlayMusicWidgetState extends State<PlayMusicWidget> {
             children: [
               ImageLoader.display(
                   MusicService.instance.music.value?.pic ?? '', 45, 45),
-              Text(
+              Gaps.hGaps10,
+              Expanded(
+                  child: Text(
                 MusicService.instance.music.value?.title ?? '',
                 style:
                     const TextStyle(fontSize: 14, color: CupertinoColors.white),
+              )),
+              InkWell(
+                onTap: () {
+                  MusicService.instance.isPlaying.value =
+                      !MusicService.instance.isPlaying.value;
+                  if (MusicService.instance.isPlaying.value) {
+                    MusicService.instance.audioPlayer.pause();
+                  } else {
+                    MusicService.instance.audioPlayer.play();
+                  }
+                },
+                child: Obx(() => MusicService.instance.isPlaying.value
+                    ? SvgPicture.asset('assets/pause.svg',
+                        width: 40, height: 40)
+                    : SvgPicture.asset('assets/play.svg',
+                        width: 40, height: 40)),
               )
             ],
           ),

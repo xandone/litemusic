@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:litemusic/routes/page_path.dart';
 import 'package:litemusic/ui/home/home_page.dart';
-import 'package:litemusic/ui/routes/page_path.dart';
 import 'package:litemusic/ui/search/controller/SearchMusicController.dart';
 import 'package:litemusic/ui/search/search_music_page.dart';
 
