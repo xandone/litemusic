@@ -5,4 +5,5 @@
 class PagePath {
   static const mMain = "/main";
   static const mHomeSearch = "/home/search";
+  static const mMusicDetails = "/musicDetails";
 }
